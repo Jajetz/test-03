@@ -16,7 +16,7 @@ def index():
 
     parameter = request.values.get('parameter')
 
-
+    parameter1 = eval(parameter)
     parameter2 = pickle.loads(parameter)
     parameter3 = yaml.load(parameter)
     parameter4 = ruamel.yaml.load(parameter)
