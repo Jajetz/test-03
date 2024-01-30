@@ -20,6 +20,7 @@ def index():
     parameter2 = pickle.loads(parameter)
     parameter3 = yaml.load(parameter)
     parameter4 = ruamel.yaml.load(parameter)
+    parameter5 = eval(parameter)
 
 
     res = render_template('index.html', parameter=parameter1)
