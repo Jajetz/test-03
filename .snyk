@@ -1,10 +1,42 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.25.0
 
-# Ignore server.py file and static/ directory
+########
+# Ignore
+# snyk ignore --id=<ISSUE_ID> [--expiry=] [--reason=] [--policy-path=<PATH_TO_POLICY_FILE>] [--path=<PATH_TO_RESOURCE>] [OPTIONS]
+# snyk ignore [--expiry=] [--reason=] [--policy-path=<PATH_TO_POLICY_FILE>] [--file-path=<PATH_TO_RESOURCE>] [OPTIONS]
+# 
+# 
+# ignore:
+#   '<ISSUE_ID>':
+#     - '*':
+#         reason: <REASON>
+#         expires: <EXPIRY>
+
 # ignore: {}
 # patch: {}
+
+#########
+# Exclude
+# CLI: snyk ignore --file-path=static/ && snyk ignore --file-path=server.py
+#
+# exclude:
+#   '<GROUP>':
+#     - <FILE MATCHING-PATTERN>
+#     - <FILE MATCHING-PATTERN>:
+#       reason: <REASON>
+#       expires: <EXPIRY>
+#       created: <CREATION TIME>
+#
+# <GROUP> [global|code|iac-drift]
+# 
+# Note: The --file-path [exclude] option is available only for Snyk Code (SAST) tests or Open Source --unmanaged tests and will not work for other test types.
+# 
+# Example
+# Exclude static/ directory and server.py file
 # exclude:
 #   global:
-#     - server.py
 #     - static/
+#     - server.py
+
+# Snyk SCA
